@@ -25,6 +25,8 @@ CREATE TABLE employed(
   salary NUMBER
 );
 ```
+![ooodd1](https://github.com/Thirukaalathessvarar-S/Ex-No-5-Creating-Triggers-using-PL-SQL/assets/121166390/8eecbd29-24b7-481c-9c03-8ef973a7a5cc)
+
 
 ### Create Salary log table
 ```
@@ -38,6 +40,8 @@ CREATE TABLE sal_log (
   update_date DATE
 );
 ```
+![ooood2](https://github.com/Thirukaalathessvarar-S/Ex-No-5-Creating-Triggers-using-PL-SQL/assets/121166390/b2495064-fcd9-4698-9a4c-7971e04e0e90)
+
 
 ### PLSQL Trigger Code
 ```
@@ -53,6 +57,8 @@ BEGIN
 END;
 /
 ```
+![oooood3](https://github.com/Thirukaalathessvarar-S/Ex-No-5-Creating-Triggers-using-PL-SQL/assets/121166390/d4481b95-66bd-4dd9-9e92-33eac11e4799)
+
 
 ### Insert the value
 ```
