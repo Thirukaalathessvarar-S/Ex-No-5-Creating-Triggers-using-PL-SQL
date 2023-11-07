@@ -1,8 +1,10 @@
 # Ex. No: 5 Creating Triggers using PL/SQL
 
-### AIM: To create a Trigger using PL/SQL.
+## DATE: 31.08.2023
 
-### Steps:
+## AIM: To create a Trigger using PL/SQL.
+
+## Steps:
 1. Create employee table with following attributes (empid NUMBER, empname VARCHAR(10), dept VARCHAR(10),salary NUMBER);
 2. Create salary_log table with following attributes (log_id NUMBER GENERATED ALWAYS AS IDENTITY, empid NUMBER,empname VARCHAR(10),old_salary NUMBER,new_salary NUMBER,update_date DATE);
 3. Create a trigger named as log_salary-update.
@@ -12,7 +14,33 @@
 7. Whenever a salary is updated for the employee it must be logged into the salary_log table with old salary and new salary.
 8. Display the employee table, salary_log table.
 
-### Program:
+## Program:
+
+### Create Employee table
+```
+CREATE TABLE employed(
+  empid NUMBER,
+  empname VARCHAR2(10),
+  dept VARCHAR2(10),
+  salary NUMBER
+);
+```
+
+### Create Salary log table
+```
+
+CREATE TABLE sal_log (
+  log_id NUMBER GENERATED ALWAYS AS IDENTITY,
+  empid NUMBER,
+  empname VARCHAR2(10),
+  old_salary NUMBER,
+  new_salary NUMBER,
+  update_date DATE
+);
+```
+
+### PLSQL Trigger Code
+```
 -- Create the trigger
 CREATE OR REPLACE TRIGGER log_sal_update
 BEFORE UPDATE ON employed
@@ -24,10 +52,17 @@ BEGIN
   END IF;
 END;
 /
--- Insert the values in the employee table
-insert into employed values(1,'Nagul','AIDS',1000000);
-insert into employed values(2,'Santhosh','SALES',500000);
+```
 
+### Insert the value
+```
+-- Insert the values in the employee table
+insert into employed values(1,'Eswar','AIDS',1000000);
+insert into employed values(2,'Lingesh','SALES',500000);
+```
+
+### Update the salary
+```
 -- Update the salary of an employee
 UPDATE employed
 SET salary = 60000
@@ -37,11 +72,12 @@ SELECT * FROM employed;
 
 -- Display the salary_log table
 SELECT * FROM sal_log;
+```
 
-### Output:
-![dbms_exp5_1](https://github.com/Thirukaalathessvarar-S/Ex-No-5-Creating-Triggers-using-PL-SQL/assets/121166390/beaf0254-4b46-4590-88dc-674b69ccca1d)
-![dbms_exp5_2](https://github.com/Thirukaalathessvarar-S/Ex-No-5-Creating-Triggers-using-PL-SQL/assets/121166390/352b1511-149e-46f6-8f28-0ff4a34106d5)
-![dbms_exp5_3](https://github.com/Thirukaalathessvarar-S/Ex-No-5-Creating-Triggers-using-PL-SQL/assets/121166390/7eb922df-72bf-4df7-b829-4c0f22a5a3c1)
+## Output:
+![dbms1_exp5](https://github.com/Thirukaalathessvarar-S/Ex-No-5-Creating-Triggers-using-PL-SQL/assets/121166390/f406b622-dcd8-465d-ac31-56162abee902)
 
-### Result:
+![dbms5_exp2](https://github.com/Thirukaalathessvarar-S/Ex-No-5-Creating-Triggers-using-PL-SQL/assets/121166390/7bc39a56-3c44-42e3-9550-b9fcf2610deb)
+
+## Result:
 The program has been implemented successfully.
